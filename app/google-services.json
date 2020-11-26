@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "913124785399",
+    "firebase_url": "https://gamedead-ca7fd.firebaseio.com",
+    "project_id": "gamedead-ca7fd",
+    "storage_bucket": "gamedead-ca7fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913124785399:android:cad95fa207666e77d7a7f2",
+        "android_client_info": {
+          "package_name": "com.boris.gamedead"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913124785399-i8ghf7r5kdsbtrhcu0plmtltcikkmmdn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boris.gamedead",
+            "certificate_hash": "a69b47e56c1a43f26cfa516636028944ce5ec589"
+          }
+        },
+        {
+          "client_id": "913124785399-8jka8ai1c5fc2o3q3vfnomsr91igfjiv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFHf7xwix-OVJS7ZVo151Rm_Vsw32XTCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913124785399-8jka8ai1c5fc2o3q3vfnomsr91igfjiv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
