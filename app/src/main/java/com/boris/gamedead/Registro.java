@@ -33,7 +33,7 @@ public class Registro extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         Date date = new Date();
-        SimpleDateFormat fecha = new SimpleDateFormat("d 'de''MMMM' del 'yyyyy");
+        SimpleDateFormat fecha = new SimpleDateFormat("d 'de' MMMM 'del' yyyyy");
         String StringFecha = fecha.format(date);
         fechaTxt.setText(StringFecha);
     }
