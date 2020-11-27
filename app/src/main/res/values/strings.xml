@@ -1,3 +1,13 @@
 <resources>
+    //main
     <string name="app_name">GameDead</string>
+    <string name="BTNLOGIN">LOGIN</string>
+    <string name="BTNREGISTRAR">REGISTRO</string>
+    //registro
+    <string name="correoET">Correo electrónico</string>
+    <string name="passET">Contraseña</string>
+    <string name="nombreET">Nombre</string>
+    <string name="fechaTxt">Fecha</string>
+    <string name="registrarBt">Registrar</string>
+
 </resources>
