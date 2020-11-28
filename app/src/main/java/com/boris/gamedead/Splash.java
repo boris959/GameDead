@@ -18,7 +18,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             public void run(){
                 //se ejecuta
-                Intent intent = new Intent(Splash.this,MainActivity.class);
+                Intent intent = new Intent(Splash.this,Menu.class);
                 startActivity(intent);
             };
         },DURACION_SPLASH);
