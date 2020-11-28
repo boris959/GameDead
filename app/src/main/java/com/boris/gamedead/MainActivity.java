@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,13 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
         BTNLOGIN = findViewById(R.id.BTNLOGIN);
         BTNREGISTRAR = findViewById(R.id.BTNREGISTRAR);
+
         BTNLOGIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Mensaje
-                Toast.makeText(MainActivity.this, "Haz entrado al Login", Toast.LENGTH_SHORT).show();
+                //NOS LLEVA AL LOGIN
+                Intent intent = new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
             }
         });
+
+        //NOS LLEVA AL REGISTRO
         BTNREGISTRAR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

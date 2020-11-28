@@ -10,34 +10,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="10dp"
         android:gravity="center">
 
+        <!--CORREO-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/correoET"
-        android:text="@string/correoET"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:hint=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/passET"
-        android:text="@string/passET"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/nombreET"
-        android:text="@string/nombreET"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/correoET"
+                android:text="@string/correoET"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:hint=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--CONTRASEÑA-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/passET"
+                android:text="@string/passET"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--FECHA-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/nombreET"
+                android:text="@string/nombreET"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--REGISTRO JUGADOR-->
     <TextView
         android:id="@+id/fechaTxt"
         android:text="@string/fechaTxt"
@@ -51,6 +75,8 @@
         android:text="@string/registrarBt"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
+        android:background="#086A87"
+        android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

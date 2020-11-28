@@ -9,5 +9,11 @@
     <string name="nombreET">Nombre</string>
     <string name="fechaTxt">Fecha</string>
     <string name="registrarBt">Registrar</string>
+    
+    
+    
+    <string name="correoLogin">Correo electronico</string>
+    <string name="passLogin">Contraseña</string>
+    <string name="BtnLogin">INGRESAR</string>
 
 </resources>

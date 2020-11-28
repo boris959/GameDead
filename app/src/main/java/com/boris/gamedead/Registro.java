@@ -58,7 +58,7 @@ public class Registro extends AppCompatActivity {
                 String password = passET.getText().toString();
 
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    correoET.setError("correo valido");
+                    correoET.setError("correo invalido");
                     correoET.setFocusable(true);
                 }else if (password.length()<6){
                     passET.setError("Contraseña debe ser mayor a 6");
