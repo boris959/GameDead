@@ -1,25 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#741602"
     tools:context=".Menu">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
 
+        <!--TXT-->
+        <TextView
+            android:id="@+id/MiPuntuaciontxt"
+            android:text="@string/MiPuntuaciontxt"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--ZOMBIES-->
+        <TextView
+            android:id="@+id/Zombies"
+            android:text="@string/Zombies"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--IMAGEN-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagen"
+            android:src="@drawable/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
+
+        <!--UID-->
+        <TextView
+            android:id="@+id/uid"
+            android:text="@string/uid"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--CORREO-->
+        <TextView
+            android:id="@+id/correo"
+            android:text="@string/correo"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <!--NOMBRE USUARIO-->
+        <TextView
+            android:id="@+id/nombre"
+            android:text="@string/nombre"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+         <!--TXT-->
+        <TextView
+            android:id="@+id/Menutxt"
+            android:text="@string/Menutxt"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+
         <Button
-            android:id="@+id/CerrarSesion"
-            android:text="@string/CerrarSesion"
+            android:id="@+id/JugarBtn"
+            android:text="@string/JugarBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/PuntuacionesBtn"
+            android:text="@string/PuntuacionesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/AcercaDeBtn"
+            android:text="@string/AcercaDeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/CerrarSesionBtn"
+            android:text="@string/CerrarSesionBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
+</ScrollView>
