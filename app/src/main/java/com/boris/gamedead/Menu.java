@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,7 +17,8 @@ public class Menu extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
 
-    Button CerrarSesion;
+    TextView MiPuntuaciontxt,uid,correo,nombre,Menu;
+    Button JugarBtn,PuntuacionesBtn,AcercaDeBtn,CerrarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,17 @@ public class Menu extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        CerrarSesion = findViewById(R.id.CerrarSesion);
+
+        MiPuntuaciontxt = findViewById(R.id.MiPuntuaciontxt);
+        uid = findViewById(R.id.uid);
+        correo = findViewById(R.id.correo);
+        nombre = findViewById(R.id.nombre);
+        Menu = findViewById(R.id.Menutxt);
+
+        JugarBtn = findViewById(R.id.JugarBtn);
+        PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
+        AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
+        CerrarSesion = findViewById(R.id.CerrarSesionBtn);
 
         CerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
