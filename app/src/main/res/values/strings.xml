@@ -16,4 +16,6 @@
     <string name="passLogin">Contraseña</string>
     <string name="BtnLogin">INGRESAR</string>
 
+    <string name="CerrarSesion">Cerrar Sesion</string>
+
 </resources>
