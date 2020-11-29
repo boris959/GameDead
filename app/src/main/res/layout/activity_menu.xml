@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#741602"
+    android:background="#670588"
     tools:context=".Menu">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="15dp"
         android:gravity="center">
 
         <!--TXT-->
@@ -34,8 +35,8 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagen"
             android:src="@drawable/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"/>
+            android:layout_width="300dp"
+            android:layout_height="180dp"/>
 
         <!--UID-->
         <TextView
@@ -81,21 +82,33 @@
         <Button
             android:id="@+id/JugarBtn"
             android:text="@string/JugarBtn"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/PuntuacionesBtn"
             android:text="@string/PuntuacionesBtn"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/AcercaDeBtn"
             android:text="@string/AcercaDeBtn"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/CerrarSesionBtn"
             android:text="@string/CerrarSesionBtn"
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
