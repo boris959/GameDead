@@ -3,6 +3,7 @@ package com.boris.gamedead;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
         BTNLOGIN = findViewById(R.id.BTNLOGIN);
         BTNREGISTRAR = findViewById(R.id.BTNREGISTRAR);
+
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(MainActivity.this.getAssets(),ubicacion);
+
+        BTNLOGIN.setTypeface(Tf);
+        BTNREGISTRAR.setTypeface(Tf);
 
         BTNLOGIN.setOnClickListener(new View.OnClickListener() {
             @Override

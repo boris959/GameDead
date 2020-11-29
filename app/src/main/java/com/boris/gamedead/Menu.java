@@ -3,6 +3,7 @@ package com.boris.gamedead;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,9 @@ public class Menu extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(Menu.this.getAssets(),ubicacion);
+
         MiPuntuaciontxt = findViewById(R.id.MiPuntuaciontxt);
         uid = findViewById(R.id.uid);
         correo = findViewById(R.id.correo);
@@ -38,6 +42,17 @@ public class Menu extends AppCompatActivity {
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
         AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
         CerrarSesion = findViewById(R.id.CerrarSesionBtn);
+
+        MiPuntuaciontxt.setTypeface(Tf);
+        uid.setTypeface(Tf);
+        correo.setTypeface(Tf);
+        nombre.setTypeface(Tf);
+        Menu.setTypeface(Tf);
+
+        JugarBtn.setTypeface(Tf);
+        PuntuacionesBtn.setTypeface(Tf);
+        AcercaDeBtn.setTypeface(Tf);
+        CerrarSesion.setTypeface(Tf);
 
 
         JugarBtn.setOnClickListener(new View.OnClickListener() {

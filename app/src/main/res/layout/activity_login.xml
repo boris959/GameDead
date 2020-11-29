@@ -19,6 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
+
             <EditText
                 android:id="@+id/correoLogin"
                 android:hint="@string/correoLogin"
@@ -48,7 +50,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        
+
 
 
         <Button
@@ -59,7 +61,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-            
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

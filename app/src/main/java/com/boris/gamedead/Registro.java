@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -50,6 +51,11 @@ public class Registro extends AppCompatActivity {
         SimpleDateFormat fecha = new SimpleDateFormat("d 'de' MMMM 'del' yyyy");
         final String StringFecha = fecha.format(date);
         fechaTxt.setText(StringFecha);
+
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(Registro.this.getAssets(),ubicacion);
+
+        registrarBt.setTypeface(Tf);
 
         registrarBt.setOnClickListener(new View.OnClickListener() {
             @Override

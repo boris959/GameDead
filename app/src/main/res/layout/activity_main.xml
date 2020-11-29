@@ -5,35 +5,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#670588"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        android:padding="20dp">
 
-        //login
+        <!--IMAGEN-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagen"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:src="@drawable/logo3" />
+
+
+        <!--LOGIN-->
+
         <Button
             android:id="@+id/BTNLOGIN"
-            android:text="@string/BTNLOGIN"
-            android:background="#FE7F7C"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        //registrar
+            android:background="@drawable/boton_personalizado"
+            android:textColor="#ffffff"
+            android:text="@string/BTNLOGIN"
+             />
+        <!--REGISTRAR-->
+
         <Button
             android:id="@+id/BTNREGISTRAR"
-            android:text="@string/BTNREGISTRAR"
-            android:background="#FE7F7C"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/boton_personalizado"
+            android:text="@string/BTNREGISTRAR"
+            android:textColor="#ffffff" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
