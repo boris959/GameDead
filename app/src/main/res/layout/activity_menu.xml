@@ -29,6 +29,8 @@
             android:id="@+id/Zombies"
             android:text="@string/Zombies"
             android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -45,6 +47,8 @@
             android:text="@string/uid"
             android:gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -54,6 +58,8 @@
             android:text="@string/correo"
             android:gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -64,6 +70,8 @@
             android:text="@string/nombre"
             android:gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

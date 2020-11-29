@@ -9,15 +9,13 @@
     <string name="nombreET">Nombre</string>
     <string name="fechaTxt">Fecha</string>
     <string name="registrarBt">Registrar</string>
-    
-    
-    
+
+
     <string name="correoLogin">Correo electronico</string>
     <string name="passLogin">Contraseña</string>
     <string name="BtnLogin">INGRESAR</string>
 
-    
-    
+
     <string name="MiPuntuaciontxt">Mi Puntuacion</string>
     <string name="Zombies">--</string>
     <string name="uid">--</string>
@@ -31,6 +29,11 @@
     <string name="PuntuacionesBtn">Puntuaciones</string>
     <string name="AcercaDeBtn">Acerca de</string>
     <string name="CerrarSesionBtn">Cerrar Sesion</string>
+
+    <!--ESCENARIO-->
+    <string name="TvContador"> 0 </string>
+    <string name="TvNombre"> ---- </string>
+    <string name="TvTiempo"> 0S </string>
 
 
 </resources>
