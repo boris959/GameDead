@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="700dp"
+    android:layout_gravity="center"
+    android:background="#670588"
+    android:padding="30dp"
+    android:gravity="center">
+
+    <!--IMAGEN-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imagen"
+        android:src="@drawable/splash"
+        android:layout_width="300dp"
+        android:layout_marginTop="-50dp"
+        android:layout_height="180dp"/>
+
+    <TextView
+        android:id="@+id/SeacaboTXT"
+        android:text="@string/SeacaboTXT"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/HasmatadoTXT"
+        android:text="@string/HasmatadoTXT"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/NumeroTXT"
+        android:text="@string/NumeroTXT"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--ANIMACIÓN-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_fileName="tiempo.json"
+        android:layout_marginTop="10dp"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+
+    <Button
+        android:id="@+id/JUEGARDENUEVO"
+        android:text="@string/JUEGARDENUEVO"
+        android:background="@drawable/boton_personalizado"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/IRMENU"
+        android:text="@string/IRMENU"
+        android:background="@drawable/boton_personalizado"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/PUNTAJES"
+        android:text="@string/PUNTAJES"
+        android:background="@drawable/boton_personalizado"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

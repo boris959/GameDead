@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Display;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -26,6 +29,9 @@ public class EscenarioJuego extends AppCompatActivity {
     int AltoPantalla;
 
     Random aleatorio;
+
+    boolean GameOver = false;
+    Dialog miDialog;
 
 
 
@@ -43,6 +49,8 @@ public class EscenarioJuego extends AppCompatActivity {
         TvContador = findViewById(R.id.TvContador);
         TvNombre = findViewById(R.id.TvNombre);
         TvTiempo = findViewById(R.id.TvTiempo);
+
+        miDialog = new Dialog(EscenarioJuego.this);
 
 
         Bundle intent = getIntent().getExtras();
@@ -62,6 +70,7 @@ public class EscenarioJuego extends AppCompatActivity {
         IvZombie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!GameOver) {
                     contador++;
                     TvContador.setText(String.valueOf(contador));
                     IvZombie.setImageResource(R.drawable.zombieaplastado);
@@ -72,10 +81,10 @@ public class EscenarioJuego extends AppCompatActivity {
                             IvZombie.setImageResource(R.drawable.zombie2);
                             Movimiento();
                         }
-                    }, 50);
+                    }, 40);
                 }
 
-
+            }
         });
     }
 
@@ -118,9 +127,68 @@ public class EscenarioJuego extends AppCompatActivity {
 
                 public void onFinish () {
                     TvTiempo.setText ("OS");
+                    GameOver = true;
+                    MensajeGameOver();
                 }
             }.start();
         }
-        }
+
+    private void MensajeGameOver() {
+
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface typeface = Typeface.createFromAsset(EscenarioJuego.this.getAssets(),ubicacion);
+
+        TextView SeacaboTXT, HasmatadoTXT, NumeroTXT;
+        Button JUGARDENUEVO, IRMENU, PUNTAJES;
+
+        miDialog.setContentView(R.layout.gameover);
+
+        SeacaboTXT = miDialog.findViewById(R.id.SeacaboTXT);
+        HasmatadoTXT = miDialog.findViewById(R.id.HasmatadoTXT);
+        NumeroTXT = miDialog.findViewById(R.id.NumeroTXT);
+
+        JUGARDENUEVO = miDialog.findViewById(R.id.JUEGARDENUEVO);
+        IRMENU = miDialog.findViewById(R.id.IRMENU);
+        PUNTAJES = miDialog.findViewById(R.id.PUNTAJES);
+
+        String zombies = String.valueOf(contador);
+        NumeroTXT.setText(zombies);
+
+        SeacaboTXT.setTypeface(typeface);
+        HasmatadoTXT.setTypeface(typeface);
+        NumeroTXT.setTypeface(typeface);
+
+        JUGARDENUEVO.setTypeface(typeface);
+        IRMENU.setTypeface(typeface);
+        PUNTAJES.setTypeface(typeface);
+
+        JUGARDENUEVO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EscenarioJuego.this, "JUGAR DE NUEVO", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        IRMENU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EscenarioJuego.this, "MENU", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        PUNTAJES.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EscenarioJuego.this, "PUNTAJES", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        miDialog.show();
+
+    }
+}
 
 
