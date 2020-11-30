@@ -45,10 +45,7 @@ public class EscenarioJuego extends AppCompatActivity {
         TvNombre = findViewById(R.id.TvNombre);
         TvTiempo = findViewById(R.id.TvTiempo);
 
-
         miDialog = new Dialog(EscenarioJuego.this);
-
-
 
         Bundle intent = getIntent().getExtras();
 
@@ -67,19 +64,21 @@ public class EscenarioJuego extends AppCompatActivity {
         IvZombie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!GameOver){
-                contador++;
-                TvContador.setText(String.valueOf(contador));
-                IvZombie.setImageResource(R.drawable.zombieaplastado);
+                if (GameOver) {
+                    contador++;
+                    TvContador.setText(String.valueOf(contador));
+                    IvZombie.setImageResource(R.drawable.zombieaplastado);
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        IvZombie.setImageResource(R.drawable.zombie2);
-                        Movimiento();
-                    }
-                }, 50);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            IvZombie.setImageResource(R.drawable.zombie2);
+                            Movimiento();
+                        }
+                    }, 50);
+                }
             }
+
         });
     }
 
@@ -125,4 +124,6 @@ public class EscenarioJuego extends AppCompatActivity {
                 }
             }.start();
         }
-    }
+        }
+
+
