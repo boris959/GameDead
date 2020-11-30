@@ -35,8 +35,8 @@
     <string name="TvNombre"> ---- </string>
     <string name="TvTiempo"> 0S </string>
  //PANTALLA
-    <string name="AnchoTv">---</string>
-    <string name="AltoTv">---</string>
+    <string name="AnchoTv"></string>
+    <string name="AltoTv"></string>
 
 
 </resources>
