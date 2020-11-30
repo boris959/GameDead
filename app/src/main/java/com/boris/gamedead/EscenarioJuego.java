@@ -27,8 +27,7 @@ public class EscenarioJuego extends AppCompatActivity {
 
     Random aleatorio;
 
-    boolean GameOver = false;
-    Dialog miDialog;
+
 
     int contador = 0;
 
@@ -45,7 +44,6 @@ public class EscenarioJuego extends AppCompatActivity {
         TvNombre = findViewById(R.id.TvNombre);
         TvTiempo = findViewById(R.id.TvTiempo);
 
-        miDialog = new Dialog(EscenarioJuego.this);
 
         Bundle intent = getIntent().getExtras();
 
@@ -64,7 +62,6 @@ public class EscenarioJuego extends AppCompatActivity {
         IvZombie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (GameOver) {
                     contador++;
                     TvContador.setText(String.valueOf(contador));
                     IvZombie.setImageResource(R.drawable.zombieaplastado);
@@ -77,7 +74,7 @@ public class EscenarioJuego extends AppCompatActivity {
                         }
                     }, 50);
                 }
-            }
+
 
         });
     }
