@@ -12,7 +12,12 @@
         android:orientation="vertical"
         android:padding="10dp"
         android:gravity="center">
-
+        <!--IMAGEN-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/soldado"
+            android:layout_marginTop="5dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
         <!--CORREO-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -29,7 +34,6 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
         <!--CONTRASEÑA-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -45,8 +49,7 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <!--FECHA-->
+            <!--NOMBRE-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -60,7 +63,34 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+        <!--EDAD-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edadET"
+                android:text="@string/edadET"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--PAIS-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/paisET"
+                android:text="@string/paisET"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
         <!--REGISTRO JUGADOR-->
     <TextView
         android:id="@+id/fechaTxt"
@@ -82,10 +112,6 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch" />
+    
 
 </RelativeLayout>

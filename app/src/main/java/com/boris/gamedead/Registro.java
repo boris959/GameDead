@@ -29,7 +29,7 @@ import java.util.HashMap;
 
 public class Registro extends AppCompatActivity {
     //declaracion variable
-    EditText correoET, passET, nombreET;
+    EditText correoET, passET, nombreET, edadET, paisET;
     TextView fechaTxt;
     Button registrarBt;
     FirebaseAuth auth; //Autentificacion
@@ -40,6 +40,9 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         //conexion
         correoET = findViewById(R.id.correoET);
+        edadET = findViewById(R.id.edadET);
+        paisET = findViewById(R.id.paisET);
+
         passET = findViewById(R.id.passET);
         nombreET = findViewById(R.id.nombreET);
         fechaTxt = findViewById(R.id.fechaTxt);
@@ -92,6 +95,8 @@ public class Registro extends AppCompatActivity {
                             String uidString = user.getUid();
                             String correoString = correoET.getText().toString();
                             String passString = passET.getText().toString();
+                            String edadString = edadET.getText().toString();
+                            String paisString = paisET.getText().toString();
                             String nombreString = nombreET.getText().toString();
                             String fechaString = fechaTxt.getText().toString();
 
@@ -101,6 +106,9 @@ public class Registro extends AppCompatActivity {
                             DatosJugador.put("Email",correoString);
                             DatosJugador.put("Password",passString);
                             DatosJugador.put("Nombres",nombreString);
+                            DatosJugador.put("Edad",edadString);
+                            DatosJugador.put("Pais",paisString);
+                            DatosJugador.put("Imagen","");
                             DatosJugador.put("Fecha",fechaString);
                             DatosJugador.put("Zombies",contador);
 
