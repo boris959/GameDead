@@ -1,8 +1,10 @@
 package com.boris.gamedead;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,6 +17,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 import java.util.Random;
 
 public class EscenarioJuego extends AppCompatActivity {
@@ -36,7 +46,10 @@ public class EscenarioJuego extends AppCompatActivity {
 
 
     int contador = 0;
-
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference JUGADORES;
 
 
     @Override
@@ -51,7 +64,10 @@ public class EscenarioJuego extends AppCompatActivity {
         TvTiempo = findViewById(R.id.TvTiempo);
 
         miDialog = new Dialog(EscenarioJuego.this);
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        JUGADORES = firebaseDatabase.getReference("MI DATA BASE JUGADORES");
 
         Bundle intent = getIntent().getExtras();
 
@@ -118,7 +134,7 @@ public class EscenarioJuego extends AppCompatActivity {
 
         }
         private void CuentaAtras(){
-            new CountDownTimer(30000, 1000) {
+            new CountDownTimer(10000, 1000) {
 
                 public void onTick (long millisUntilFinished) {
                     long segundosRestantes = millisUntilFinished/1000;
@@ -129,11 +145,11 @@ public class EscenarioJuego extends AppCompatActivity {
                     TvTiempo.setText ("OS");
                     GameOver = true;
                     MensajeGameOver();
+                    GuardarResultados("Zombies",contador);
                 }
             }.start();
         }
-
-    private void MensajeGameOver() {
+        private void MensajeGameOver() {
 
         String ubicacion = "fuentes/zombie.TTF";
         Typeface typeface = Typeface.createFromAsset(EscenarioJuego.this.getAssets(),ubicacion);
@@ -165,15 +181,19 @@ public class EscenarioJuego extends AppCompatActivity {
         JUGARDENUEVO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(EscenarioJuego.this, "JUGAR DE NUEVO", Toast.LENGTH_SHORT).show();
-
+                contador = 0;
+                miDialog.dismiss();
+                TvContador.setText("0");
+                GameOver = false;
+                CuentaAtras();
+                Movimiento();
             }
         });
 
         IRMENU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(EscenarioJuego.this, "MENU", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EscenarioJuego.this,Menu.class));
 
             }
         });
@@ -189,6 +209,18 @@ public class EscenarioJuego extends AppCompatActivity {
         miDialog.show();
 
     }
+        private void GuardarResultados(String key, int zombies){
+            HashMap<String,Object> hashMap = new HashMap<>();
+            hashMap.put(key,zombies);
+            JUGADORES.child(user.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    Toast.makeText(EscenarioJuego.this, "El puntaje ha sido actualizado", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
 }
 
 

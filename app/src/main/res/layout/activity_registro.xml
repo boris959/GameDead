@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/registrar"
     tools:context=".Registro">
+
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="15dp"
         android:gravity="center">
-
+        <!--IMAGEN-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/soldado"
+            android:layout_marginTop="5dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"/>
         <!--CORREO-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -22,6 +29,7 @@
                 android:id="@+id/correoET"
                 android:text="@string/correoET"
                 android:gravity="center"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:hint=""
@@ -29,7 +37,6 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
         <!--CONTRASEÑA-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -38,6 +45,7 @@
             <EditText
                 android:id="@+id/passET"
                 android:text="@string/passET"
+                android:textColor="#ffffff"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
@@ -45,14 +53,14 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <!--FECHA-->
+            <!--NOMBRE-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/nombreET"
                 android:text="@string/nombreET"
+                android:textColor="#ffffff"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
@@ -60,12 +68,42 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+        <!--EDAD-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edadET"
+                android:text="@string/edadET"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--PAIS-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/paisET"
+                android:text="@string/paisET"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
         <!--REGISTRO JUGADOR-->
     <TextView
         android:id="@+id/fechaTxt"
         android:text="@string/fechaTxt"
         android:gravity="center"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -73,19 +111,15 @@
     <Button
         android:id="@+id/registrarBt"
         android:text="@string/registrarBt"
+        android:background="@drawable/boton_personalizado"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
-        android:background="#086A87"
         android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch" />
+    
 
 </RelativeLayout>

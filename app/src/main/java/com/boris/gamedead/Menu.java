@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,8 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
-import java.sql.SQLTransactionRollbackException;
+
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Menu extends AppCompatActivity {
@@ -32,9 +34,10 @@ public class Menu extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference JUGADORES;
 
-    TextView MiPuntuaciontxt,uid,correo,nombre,Menu;
+    TextView MiPuntuaciontxt,uid,correo,nombre,edad,pais,Menu;
     TextView Zombies;
-    Button JugarBtn,PuntuacionesBtn,AcercaDeBtn,CerrarSesion;
+    Button JugarBtn,EditarBtn,CambiarPassBtn,PuntuacionesBtn,AcercaDeBtn,CerrarSesion;
+    CircleImageView imagenPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +52,21 @@ public class Menu extends AppCompatActivity {
 
         String ubicacion = "fuentes/zombie.TTF";
         Typeface Tf = Typeface.createFromAsset(Menu.this.getAssets(),ubicacion);
-
+        //PERFIL
         MiPuntuaciontxt = findViewById(R.id.MiPuntuaciontxt);
-
+        imagenPerfil = findViewById(R.id.imagenPerfil);
         Zombies = findViewById(R.id.Zombies);
         uid = findViewById(R.id.uid);
         correo = findViewById(R.id.correo);
         nombre = findViewById(R.id.nombre);
+        edad = findViewById(R.id.edad);
+        pais = findViewById(R.id.pais);
         Menu = findViewById(R.id.Menutxt);
 
+        //OPCIONES DEL JUEGO
         JugarBtn = findViewById(R.id.JugarBtn);
+        EditarBtn = findViewById(R.id.EditarBtn);
+        CambiarPassBtn = findViewById(R.id.CambiarPassBtn);
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
         AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
         CerrarSesion = findViewById(R.id.CerrarSesionBtn);
@@ -91,6 +99,18 @@ public class Menu extends AppCompatActivity {
 
                 startActivity(intent);
                 Toast.makeText(Menu.this, "ENVIANDO PARAMETROS", Toast.LENGTH_SHORT).show();
+            }
+        });
+        EditarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this, "Editar", Toast.LENGTH_SHORT).show();
+            }
+        });
+        CambiarPassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this, "Cambiar Contraseña", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -134,8 +154,6 @@ public class Menu extends AppCompatActivity {
         }
     }
 
-
-
     private void CerrarSesion(){
         auth.signOut();
         startActivity(new Intent(Menu.this,MainActivity.class));
@@ -148,20 +166,30 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                    String zombiesString = ""+ds.child("Zombies").getValue();
-                    String uidString = ""+ds.child("Uid").getValue();
-                    String emailString = ""+ds.child("Email").getValue();
-                    String nombreString = ""+ds.child("Nombres").getValue();
+                    String zombiesString = "" + ds.child("Zombies").getValue();
+                    String uidString = "" + ds.child("Uid").getValue();
+                    String emailString = "" + ds.child("Email").getValue();
+                    String edadString = "" + ds.child("Edad").getValue();
+                    String paisString = "" + ds.child("Pais").getValue();
+                    String imagen = "" + ds.child("Imagen").getValue();
+                    String nombreString = "" + ds.child("Nombres").getValue();
 
                     Zombies.setText(zombiesString);
                     uid.setText(uidString);
                     correo.setText(emailString);
                     nombre.setText(nombreString);
+                    edad.setText(edadString);
+                    pais.setText(paisString);
+                    try {
+                        Picasso.get().load(imagen).into(imagenPerfil);
+                    } catch (Exception e) {
+                        Picasso.get().load(R.drawable.soldado).into(imagenPerfil);
+                    }
                 }
-
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

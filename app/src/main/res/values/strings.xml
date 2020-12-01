@@ -7,6 +7,8 @@
     <string name="correoET">Correo electrónico</string>
     <string name="passET">Contraseña</string>
     <string name="nombreET">Nombre</string>
+    <string name="edadET">Edad</string>
+    <string name="paisET">Pais</string>
     <string name="fechaTxt">Fecha</string>
     <string name="registrarBt">Registrar</string>
 
@@ -15,17 +17,24 @@
     <string name="passLogin">Contraseña</string>
     <string name="BtnLogin">INGRESAR</string>
 
-
+    <!---MENU-->
+    <string name="MiPerfiltxt">Mi Perfil</string>
     <string name="MiPuntuaciontxt">Mi Puntuacion</string>
-    <string name="Zombies">--</string>
-    <string name="uid">--</string>
-    <string name="correo">--</string>
-    <string name="nombre">--</string>
+    <string name="Zombies"> -- </string>
+    <string name="uid"> -- </string>
+    <string name="correo"> -- </string>
+    <string name="nombre"> -- </string>
+    <string name="edad"> -- </string>
+    <string name="pais"> -- </string>
+    <string name="fecha"> -- </string>
+
 
 
     <string name="Menutxt">Menu</string>
 
     <string name="JugarBtn">Jugar</string>
+    <string name="EditarBtn">Editar</string>
+    <string name="CambiarPassBtn">Cambiar Contraseña</string>
     <string name="PuntuacionesBtn">Puntuaciones</string>
     <string name="AcercaDeBtn">Acerca de</string>
     <string name="CerrarSesionBtn">Cerrar Sesion</string>
