@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#670588"
+    android:background="@drawable/main"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:textSize="20sp"
             android:layout_marginRight="30dp"
             android:background="@drawable/boton_personalizado"
             android:textColor="#ffffff"
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
+            android:textSize="20sp"
             android:layout_marginRight="30dp"
             android:background="@drawable/boton_personalizado"
             android:text="@string/BTNREGISTRAR"
