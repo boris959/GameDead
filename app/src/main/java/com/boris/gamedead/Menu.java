@@ -1,16 +1,22 @@
 package com.boris.gamedead;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -75,9 +82,16 @@ public class Menu extends AppCompatActivity {
         uid.setTypeface(Tf);
         correo.setTypeface(Tf);
         nombre.setTypeface(Tf);
+        edad.setTypeface(Tf);
+        pais.setTypeface(Tf);
+        Zombies.setTypeface(Tf);
         Menu.setTypeface(Tf);
 
+        /*CAMBIO DE FUENTE DE LETRA*/
+
         JugarBtn.setTypeface(Tf);
+        EditarBtn.setTypeface(Tf);
+        CambiarPassBtn.setTypeface(Tf);
         PuntuacionesBtn.setTypeface(Tf);
         AcercaDeBtn.setTypeface(Tf);
         CerrarSesion.setTypeface(Tf);
@@ -105,6 +119,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Menu.this, "Editar", Toast.LENGTH_SHORT).show();
+                EditarDatos();
             }
         });
         CambiarPassBtn.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +149,126 @@ public class Menu extends AppCompatActivity {
                 CerrarSesion();
             }
         });
+    }
+
+    /*METODO PARA CAMBIAR DATOS*/
+
+    private void EditarDatos() {
+        //DEFINIDO EL ARREGLO CON LAS OPCIONES QUE PODREMOS ELEGIR
+        String [] Opciones = {"Foto de perfil","Cambiar edad","Cambiar pais"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setItems(Opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                if (i == 0){
+                    ActualizarFotoPerfil();
+                }
+
+                if (i == 1){
+                    ActualizarEdad("Edad");
+                }
+
+                if (i == 2){
+                    ActualizarPais("Pais");
+                }
+            }
+        });
+        builder.create().show();
+    }
+
+    private void ActualizarEdad(final String key) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Cambiar:"+key);
+        LinearLayoutCompat linearLayoutCompat = new LinearLayoutCompat(this);
+        linearLayoutCompat.setOrientation(LinearLayoutCompat.VERTICAL);
+        linearLayoutCompat.setPadding(10,10,10,10);
+        final EditText editText = new EditText(this);
+        editText.setHint("Ingrese"+key);
+        linearLayoutCompat.addView(editText);
+        builder.setView(linearLayoutCompat);
+
+        //SI EL USUARIO HACE CLIK EN ACTUALIZAR
+        builder.setPositiveButton("Actualizar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String value = editText.getText().toString().trim();
+                HashMap<String,Object> result = new HashMap<>();
+                result.put(key,value);
+                JUGADORES.child(user.getUid()).updateChildren(result)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(Menu.this, "DATO ACTUALIZADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Menu.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Menu.this, "CANCELADO POR EL USUARIO", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        builder.create().show();
+
+    }
+
+    private void ActualizarPais(final String key) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Cambiar:"+key);
+        LinearLayoutCompat linearLayoutCompat = new LinearLayoutCompat(this);
+        linearLayoutCompat.setOrientation(LinearLayoutCompat.VERTICAL);
+        linearLayoutCompat.setPadding(10,10,10,10);
+        final EditText editText = new EditText(this);
+        editText.setHint("Ingrese"+key);
+        linearLayoutCompat.addView(editText);
+        builder.setView(linearLayoutCompat);
+
+        //SI EL USUARIO HACE CLIK EN ACTUALIZAR
+        builder.setPositiveButton("Actualizar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String value = editText.getText().toString().trim();
+                HashMap<String,Object> result = new HashMap<>();
+                result.put(key,value);
+                JUGADORES.child(user.getUid()).updateChildren(result)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(Menu.this, "DATO ACTUALIZADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Menu.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Menu.this, "CANCELADO POR EL USUARIO", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        builder.create().show();
+    }
+
+    /*CAMBIO DE VIDEO*/
+    private void ActualizarFotoPerfil() {
     }
 
     @Override
@@ -178,10 +313,10 @@ public class Menu extends AppCompatActivity {
 
                     Zombies.setText(zombiesString);
                     uid.setText(uidString);
-                    correo.setText(emailString);
-                    nombre.setText(nombreString);
-                    edad.setText(edadString);
-                    pais.setText(paisString);
+                    correo.setText("Correo:"+emailString);
+                    nombre.setText("Nombre:"+nombreString);
+                    edad.setText("Edad:"+edadString);
+                    pais.setText("Pais:"+paisString);
                     try {
                         Picasso.get().load(imagen).into(imagenPerfil);
                     } catch (Exception e) {
