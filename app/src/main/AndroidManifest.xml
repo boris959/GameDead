@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.boris.gamedead">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!--PERMISO PARA ESCRIBIR EN UN ALMACENAMIENTO EXTERNO-->
 
     <application
         android:allowBackup="true"
